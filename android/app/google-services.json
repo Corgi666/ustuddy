@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "422530467068",
+    "project_id": "masterclass-8fea1",
+    "storage_bucket": "masterclass-8fea1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422530467068:android:ade6813875aff0b7b80379",
+        "android_client_info": {
+          "package_name": "com.example.learning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422530467068-1o93kb401eujqnbr20ng558l6ovnjb0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA5RYpseGeNnThliBSsP1UAnl6LgESjQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422530467068-1o93kb401eujqnbr20ng558l6ovnjb0u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "422530467068-11c1sjauoo4815nafhpbqq44gbn8gdt2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.masterclass"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422530467068:android:23f598cafe7fa990b80379",
+        "android_client_info": {
+          "package_name": "com.example.masterclass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422530467068-1o93kb401eujqnbr20ng558l6ovnjb0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA5RYpseGeNnThliBSsP1UAnl6LgESjQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422530467068-1o93kb401eujqnbr20ng558l6ovnjb0u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "422530467068-11c1sjauoo4815nafhpbqq44gbn8gdt2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.masterclass"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
