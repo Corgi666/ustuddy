@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:masterclass/controller/question_paper/get_question_controller.dart';
 // import 'package:masterclass/controller/question_paper/get_question_controller.dart';
 import 'package:masterclass/screens/question/background_decoration.dart';
 
@@ -12,10 +13,15 @@ class QuestionScreen extends GetView<QuestionPaperController> {
   @override
   Widget build(BuildContext context) {
     final paper = Get.arguments;
+    QuestionController questionController = Get.find();
     controller.loadData(paper);
     // print(paper.id);
     return Scaffold(
-      body: BackgroundScreen(child: Text(paper.id)),
+      body: BackgroundScreen(
+          child: GestureDetector(
+        onTap: () => questionController.loadData(paper),
+        child: Text(paper.id),
+      )),
     );
   }
 }

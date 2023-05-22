@@ -7,6 +7,7 @@ import '../../model/answer_model.dart';
 
 class QuestionPaperController extends GetxController {
   late QuestionPaper questionPaperModel;
+  final allpaper = [].obs;
   @override
   void onReady() {
     // TODO: implement onReady
@@ -18,17 +19,50 @@ class QuestionPaperController extends GetxController {
 
   void loadData(QuestionPaper questionPaper) async {
     questionPaperModel = questionPaper;
+    print(questionPaper.id);
     try {
-      final questionQuery = await questionPaperRF
-          .doc(questionPaper.id)
-          .collection("questions")
-          .get();
+      final CollectionReference<Map<String, dynamic>> collection =
+          FirebaseFirestore.instance
+              .collection('questionPaper')
+              .doc(questionPaper.id.toString())
+              .collection('questions');
+
+      // final QuerySnapshot<Map<String, dynamic>> questionQuery =
+      //     await questionPaperRF
+      //         .doc(questionPaper.id)
+      //         .collection("questions")
+      //         .get();
+
+      final snapshot = await collection.get();
+
       //  final questionPaperCollection =
       //       snapshot.docs.map((doc) => QuestionPaper.fromJson(doc.data())).toList();
-      final question = questionQuery.docs
-          .map((e) => QuestionPaper.fromJson(e.data()))
-          .toList();
-      print(question.length);
+      // print(questionQuery);
+
+      final question =
+          snapshot.docs.map((e) => Question.formSnapshot(e)).toList();
+      questionPaper.questions = question;
+      print('QuestionQuery is ${question[0].correctAnswer}');
+
+      for (Question _question in questionPaper.questions) {
+        final QuerySnapshot<Map<String, dynamic>> answerQuery =
+            await questionPaperRF
+                .doc(questionPaper.id)
+                .collection("questions")
+                .doc(_question.id)
+                .collection("answers")
+                .get();
+        final answer = answerQuery.docs
+            .map((answer) => Answer.formSnapshot(answer))
+            .toList();
+        print(answer[0].identifier);
+      }
+      // print(question[0].correctAnswer);
+
+      // allpaper.value.addAll(question);
+      // if (allpaper.isNotEmpty) {
+      //   print('object');
+      // }
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());

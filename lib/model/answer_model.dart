@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 QuestionPaper questionPaperFromJson(String str) =>
     QuestionPaper.fromJson(json.decode(str));
 
@@ -62,6 +64,12 @@ class Question {
     required this.correctAnswer,
   });
 
+  Question.formSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
+      : id = snapshot.id,
+        question = snapshot['question'],
+        answers = [],
+        correctAnswer = snapshot['currect_answer'];
+
   factory Question.fromJson(Map<String, dynamic> json) => Question(
         id: json["id"],
         question: json["question"],
@@ -73,7 +81,7 @@ class Question {
   Map<String, dynamic> toJson() => {
         "id": id,
         "question": question,
-        "answers": List<dynamic>.from(answers.map((x) => x.toJson())),
+        "answers": [],
         "correct_answer": correctAnswer,
       };
 }
@@ -86,6 +94,10 @@ class Answer {
     required this.identifier,
     required this.answer,
   });
+
+  Answer.formSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
+      : identifier = snapshot['identifier'] as String,
+        answer = snapshot['answer'] as String;
 
   factory Answer.fromJson(Map<String, dynamic> json) => Answer(
         identifier: json["identifier"],

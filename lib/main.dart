@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:masterclass/controller/theme_controller.dart';
 import 'package:masterclass/firebase_options.dart';
 import 'package:get/get.dart';
-// import 'package:masterclass/test.dart';
+import 'package:masterclass/test.dart';
 
 import 'package:masterclass/utils/dependencies.dart' as dep;
 import 'package:masterclass/utils/routes.dart';
